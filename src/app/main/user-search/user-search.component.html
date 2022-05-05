@@ -1,0 +1,12 @@
+<mat-card>
+    <h2>Search github username</h2>
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput required [formControl]="name" />
+      <mat-error>Error occurred</mat-error>
+
+      <button mat-raised-button class="submit-btn" [disabled]="!this.name.valid" (click)="onSubmit()">Submit</button>
+
+    </mat-form-field>
+</mat-card>
+

@@ -1,0 +1,43 @@
+<ng-container *ngIf="!data.error else error">
+  <div class="row">
+    <div class="col-4 user-basic-info">
+      <div><img class="circular-square" src="{{data.avatar_url}}" alt="Image"></div>
+      <div><b>Username:</b> {{data.name}}</div>
+      <div><b>Github id:</b> {{data.id}}</div>
+      <div><b>Followers:</b> {{data.followers}}</div>
+      <div><b>Following:</b> {{data.following}}</div>
+      <div><b>Stars:</b> {{stars}}</div>
+      <div><b>Twitter username:</b>
+        <a target="_blank" href="https://twitter.com/{{data.twitter_username}}">{{data.twitter_username}}</a>
+      </div>
+      <div class="organization">
+        <b>Organization:</b>
+        <div class="row">
+          <div class="organization col-auto"  *ngFor="let organization of organizationalList">
+            <img class="circular-square" src="{{organization.avatar_url}}" alt="Image">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <div *ngFor="let repo of repoList">
+        <mat-card>
+          <div><b>Name:</b> {{repo.name}}</div>
+          <div><b>Description:</b> {{repo.description}}</div>
+          <div><b>Primary language:</b> {{repo.language}}</div>
+          <div> <b>Stars:</b> {{repo.stargazers_count}}</div>
+          <div><b>Fork count:</b> {{repo.forks}}</div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #error>
+  <app-page-not-found></app-page-not-found>
+</ng-template>
+
+<div class="back-button">
+  <button mat-raised-button (click)="gotoSearchPage()">Goto search page</button>
+</div>
+
