@@ -6,7 +6,8 @@ import {Organization, Repository, UserDetailsBasicInfo} from '../../model/user-d
 import {takeLast} from 'rxjs/operators';
 
 const headers = new HttpHeaders({
-  Authorization: `token ${environment.token}`
+  // Uncomment this line if you want to access github api with token
+  // Authorization: `token ${environment.token}`
 });
 
 @Injectable({
